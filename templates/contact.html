@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block contactactive %} active {% endblock contactactive %} active 
+  
+{% block body %}
+  {% if disp %}
+  {% if success %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Hurrah!</strong> Information saved successfully.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Oops!</strong> You have entered something incorrect.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>   
+    {% endif %}
+    {% endif %}  
+    
+    
+    <div class="container" style = "padding-top : 3.5rem;">
+      <h2 class="text-center my-3">Please give your information</h2>
+      <form action="\Contact" method="post">
+        {% csrf_token %}
+       
+        <div class="form-group active">
+          <label for="Name">Name</label>
+          <input type="name" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter name">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="Phone">Phone Number</label>
+          <input type="phone" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" placeholder="Your number">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        
+        
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+    </div>  
+  {% endblock body %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
